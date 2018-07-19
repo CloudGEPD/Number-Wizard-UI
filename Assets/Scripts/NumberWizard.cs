@@ -22,16 +22,16 @@ public class NumberWizard : MonoBehaviour
     
     void StartGame()
     {
-        guess = (max + min) / 2;
-        guessText.text = guess.ToString();
-        max = max + 1;
+        NextGuess();
     }
 
     public void OnKeyPressUp()
     {
         {
-            min = guess;
+            min = guess + 1;
             NextGuess();
+            if (guess > 1000)
+                guess = 1000;
         }
         
 
@@ -40,8 +40,10 @@ public class NumberWizard : MonoBehaviour
     public void OnKeyPressDown()
     {
         {
-            max = guess;
+            max = guess + 1;
             NextGuess();
+            if (guess < 1)
+                guess = 1;
         }
     }
         
@@ -49,7 +51,7 @@ public class NumberWizard : MonoBehaviour
 
     void NextGuess()
     {
-        guess = (max + min) / 2;
+        guess = Random.Range(min, max); ;
         guessText.text = guess.ToString();
     }
 }
