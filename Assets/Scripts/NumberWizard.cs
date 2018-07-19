@@ -22,34 +22,35 @@ public class NumberWizard : MonoBehaviour
     
     void StartGame()
     {
-        max += max;
         guess = (max + min) / 2;
-        guessText.text = guessText.ToString();
+        guessText.text = guess.ToString();
+        max = max + 1;
     }
 
-    void OnKeyPressUp()
+    public void OnKeyPressUp()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             min = guess;
             NextGuess();
         }
+        
 
     }
 
-    void OnKeyPressDown()
+    public void OnKeyPressDown()
     {
-        if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             max = guess;
             NextGuess();
         }
-
     }
+        
+
 
     void NextGuess()
     {
         guess = (max + min) / 2;
+        guessText.text = guess.ToString();
     }
 }
         
