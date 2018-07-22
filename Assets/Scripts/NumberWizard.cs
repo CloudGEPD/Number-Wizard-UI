@@ -22,10 +22,12 @@ public class NumberWizard : MonoBehaviour
     
     void StartGame()
     {
+        NextGuess();
+        guessText.text = guess.ToString();
         max += max;
-        guess = (max + min) / 2;
-        guessText.text = guessText.ToString();
     }
+
+   
 
     void OnKeyPressUp()
     {
@@ -43,6 +45,7 @@ public class NumberWizard : MonoBehaviour
         {
             max = guess;
             NextGuess();
+            print(guess);
         }
 
     }
