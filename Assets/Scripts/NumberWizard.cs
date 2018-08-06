@@ -15,33 +15,25 @@ public class NumberWizard : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartGame();
-        
-    }
-
-    
-    void StartGame()
-    {
         NextGuess();
-<<<<<<< HEAD
-        guessText.text = guess.ToString();
-        max += max;
     }
 
-   
-
-    void OnKeyPressUp()
-=======
+    private void Update()
+    {
+        OnKeyPressUp();
+        OnKeyPressDown();
     }
+
 
     public void OnKeyPressUp()
->>>>>>> 5f1836589e22cf3d0bc0066f148ac3f2e8b10d9b
+    
     {
         {
-            min = guess + 1;
-            NextGuess();
             if (guess > 1000)
                 guess = 1000;
+            min = guess;
+            NextGuess();
+            
         }
         
 
@@ -50,14 +42,11 @@ public class NumberWizard : MonoBehaviour
     public void OnKeyPressDown()
     {
         {
-            max = guess + 1;
+            max = guess;
             NextGuess();
-<<<<<<< HEAD
-            print(guess);
-=======
             if (guess < 1)
                 guess = 1;
->>>>>>> 5f1836589e22cf3d0bc0066f148ac3f2e8b10d9b
+
         }
     }
         
@@ -65,9 +54,16 @@ public class NumberWizard : MonoBehaviour
 
     void NextGuess()
     {
-        guess = Random.Range(min, max); ;
+        Random.Range(min +1, max);
         guessText.text = guess.ToString();
     }
 }
         
 	
+       
+
+   
+
+  
+
+    
